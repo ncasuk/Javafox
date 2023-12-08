@@ -39,8 +39,8 @@ touch "${BASE}/.java/deployment/security/exception.sites"
 
 docker run -ti --rm --net=host -v $XSOCK:$XSOCK -v $XAUTHD:$XAUTHD \
        -e XAUTHORITY=$XAUTH -e DISPLAY=$DISPLAY \
-       -v "${BASE}/.java:/home/ffuser/.java" \
+       -v "${BASE}/.java:/home/ffuser/.java:Z" \
        $HOST_HOME_DIR_PARAM \
-       -v "${BASE}/.mozilla:/home/ffuser/.mozilla" ${IMAGE} "$@"
+       -v "${BASE}/.mozilla:/home/ffuser/.mozilla:Z" ${IMAGE} "$@"
 
 rm -rf $XAUTHD
